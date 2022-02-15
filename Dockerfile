@@ -3,16 +3,18 @@ FROM node:10
 WORKDIR /usr/src/app
 
 # Copy NodeCG (just the files we need)
-RUN mkdir cfg && mkdir bundles && mkdir logs && mkdir db
+RUN mkdir cfg && mkdir bundles && mkdir logs && mkdir db && mkdir assets
 COPY . /usr/src/app/
+RUN ls -la /usr/src/app/
 
 # Install dependencies
 RUN npm install --production
 
 # Install Bundles
 # For Example let's install Ewan's Bundle.
-RUN cd bundles
-RUN git clone https://github.com/EwanLyon/tutorial-bundle.git
+# RUN cd bundles
+RUN cd /usr/src/app/bundles
+RUN git clone https://github.com/EwanLyon/tutorial-bundle.git /usr/src/app/bundles/
 
 # The command to run
 # EXPOSE 9090
