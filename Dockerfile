@@ -12,9 +12,9 @@ RUN npm install --production
 
 # Install Bundles
 # For Example let's install Ewan's Bundle.
-# RUN cd bundles
-RUN cd /usr/src/app/bundles
+WORKDIR /usr/src/app/bundles
 RUN git clone https://github.com/EwanLyon/tutorial-bundle.git /usr/src/app/bundles/
+RUN npm install
 
 # The command to run
 # EXPOSE 9090
