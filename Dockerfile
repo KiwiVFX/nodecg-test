@@ -10,5 +10,5 @@ COPY . /usr/src/app/
 RUN npm install --production
 
 # The command to run
-EXPOSE 9090
+# EXPOSE 9090
 CMD ["node", "index.js"]
