@@ -9,9 +9,9 @@ COPY . /usr/src/app/
 # Install dependencies
 RUN npm install --production
 
-#WORKDIR /bundles/
-RUN cd bundles
-RUN git clone https://github.com/EwanLyon/tutorial-bundle.git
+WORKDIR /bundles/
+#RUN cd bundles
+RUN git clone https://github.com/EwanLyon/tutorial-bundle.git /usr/src/app/bundles/
 # The command to run
 # EXPOSE 9090
 CMD ["node", "index.js"]
