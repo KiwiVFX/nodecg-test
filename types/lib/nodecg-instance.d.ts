@@ -49,9 +49,11 @@ interface NodeCGCommon<P extends Platform, M = SendMessageReturnType<P>> {
 		handlerFunc: (message: any) => void
 	): void;
 	Replicant<V>(name: string, opts?: ReplicantOptions<V>): Replicant<V, P>;
-	Replicant<V>(name: string, namespace: string, opts?: ReplicantOptions<V>): Replicant<V, P>;
-	readReplicant<V>(name: string, cb: (value: V) => void): void;
-	readReplicant<V>(name: string, namespace: string, cb: (value: V) => void): void;
+	Replicant<V>(
+		name: string,
+		namespace: string,
+		opts?: ReplicantOptions<V>
+	): Replicant<V, P>;
 }
 
 /**
@@ -67,10 +69,15 @@ export interface NodeCGServer extends NodeCGCommon<'server'> {
 	extensions: {
 		[bundleName: string]: (nodecg: NodeCGServer) => void;
 	};
-	listenFor(messageName: string, handlerFunc: (message: any, cb?: ListenForCb) => void): void;
-	listenFor(messageName: string, bundleName: string, handlerFunc: (message: any, cb?: ListenForCb) => void): void;
-	readReplicant<V>(name: string): V;
-	readReplicant<V>(name: string, namespace: string): V;
+	listenFor(
+		messageName: string,
+		handlerFunc: (message: any, cb?: ListenForCb) => void
+	): void;
+	listenFor(
+		messageName: string,
+		bundleName: string,
+		handlerFunc: (message: any, cb?: ListenForCb) => void
+	): void;
 }
 
 /**
@@ -91,6 +98,12 @@ export interface NodeCGBrowser extends NodeCGCommon<'browser'> {
 	): createjs.AbstractSoundInstance;
 	stopSound(cueName: string): void;
 	stopAllSounds(): void;
+	readReplicant<V>(name: string, cb: (value: V) => void): void;
+	readReplicant<V>(
+		name: string,
+		namespace: string,
+		cb: (value: V) => void
+	): void;
 }
 
 /**

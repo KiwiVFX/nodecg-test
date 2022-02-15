@@ -8,7 +8,6 @@
 		"ava"
 	],
 	"rules": {
-		"valid-jsdoc": 0,
 		"new-cap": [
 			2,
 			{
