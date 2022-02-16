@@ -3,10 +3,13 @@ FROM node:10
 WORKDIR /usr/src/app
 
 # Copy NodeCG (just the files we need)
-RUN mkdir cfg && mkdir bundles && mkdir logs && mkdir db && mkdir assets
+RUN mkdir bundles && mkdir logs && mkdir db && mkdir assets
 COPY . /usr/src/app/
-RUN ls -la /usr/src/app/
+RUN ls -la /usr/src/app/cfg
 
+RUN mkdir cfg
+# WORKDIR /usr/src/app/cfg
+# COPY ./cfg/nodecg.json /usr/src/app/cfg/
 # Install dependencies
 RUN npm install --production
 
