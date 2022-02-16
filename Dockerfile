@@ -11,10 +11,13 @@ RUN ls -la /usr/src/app/
 RUN npm install --production
 
 # Install Bundles
-# For Example let's install Ewan's Bundle.
+# Setting working directory for bundles
 WORKDIR /usr/src/app/bundles
+# Cloning Report to bundles Folder
 RUN git clone https://github.com/EwanLyon/tutorial-bundle.git /usr/src/app/bundles/tutorial-bundle
+# Changing Working Directory back to app
 WORKDIR /usr/src/app
+
 # The command to run
-EXPOSE 9090
+# EXPOSE 9090
 CMD ["node", "index.js"]
