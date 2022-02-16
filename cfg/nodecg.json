@@ -25,6 +25,11 @@
         }
        
       
-    }
+    },
+    "ssl": {
+        "enabled": false,
+        "keyPath": "",
+        "certificatePath": ""
+      }
   
 }
